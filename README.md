@@ -45,7 +45,7 @@ where $\mu$ is the position of the fixed point the particle is connected to, $\t
 As we see from the Brownian motion, $dX_t = \xi_t dt$. Therefore, we can write the stochastic differential equation (SDE) of the Ornstein-Uhlenbeck process as
 
 $$
-dX_t = \theta (\mu - X_t)dt + dW_t
+dX_t = \theta (\mu - X_t)dt + \sigma dW_t
 $$
 
 where $dW_t$ is the increment of the Brownian motion.
