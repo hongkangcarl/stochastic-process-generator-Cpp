@@ -2,7 +2,7 @@
 A fast generator of stochastic processes (Brownian motion and Ornstein-Uhlenbeck process) written in C++.
 
 ## Overview
-This program can generate multiple independent stochastic processes (Brownian motion and Ornstein-Uhlenbeck process) and save the trajectories into a csv file `output.csv`. The program will first ask for user's inputs about the type of trajectories, how many trajectories to generate, how many data points per trajectories and what is the time step. The `output.csv` is a (M + 1) by N matrix, where the first row is the discrete time values, and the following M rows are the generated independent trajectories.
+This program can generate multiple independent stochastic processes (Brownian motion and Ornstein-Uhlenbeck process) and save the trajectories into a csv file `output.csv`. The program will first ask for user's inputs about the type of trajectories, how many trajectories to generate, how many data points per trajectory and what is the time step. The `output.csv` is a (M + 1) by N matrix, where the first row is the discrete time values, and the following M rows are the generated independent trajectories.
 
 ## Mathematical background
 
