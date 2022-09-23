@@ -2,11 +2,14 @@
 A fast generator of stochastic processes (Brownian motion and Ornstein-Uhlenbeck process) written in C++.
 
 ## Overview
-This program can generate multiple independent stochastic processes (Brownian motion and Ornstein-Uhlenbeck process) and save the trajectories into a csv file `output.csv`. The program will first ask for user's inputs about the type of trajectories, how many trajectories to generate, how many data points per trajectories and what is the time step.
+This program can generate multiple independent stochastic processes (Brownian motion and Ornstein-Uhlenbeck process) and save the trajectories into a csv file `output.csv`. The program will first ask for user's inputs about the type of trajectories, how many trajectories to generate, how many data points per trajectories and what is the time step. The `output.csv` is a (M + 1) by N matrix, where the first row is the discrete time values, and the following M rows are the generated independent trajectories.
 
 ## Mathematical background
 
 ### Brownian motion
+
+![image](https://user-images.githubusercontent.com/63879978/192063293-30e54aef-9bf8-48f9-a341-9628ce770310.png)
+
 A stochastic process is defined as a series of random variables, widely used to model systems with thermal fluctuations or stock prices in financial markets. A basic stochastic process is the Brownian motion $W_t$ (also called Wiener process). Every increment in the Brownian motion is independent and follows a standard normal distribution
 
 $$
@@ -30,6 +33,8 @@ where $\xi_t$ is a random velocity (due to a random force) that is uncorrelated 
 ### Ornstein-Uhlenbeck process
 
 The Ornstein-Uhlenbeck process is another basic but interesting stochastic process. Physically motivated, this process is the trajectory of an inertia-free Brownian particle connected by a spring to a fixed point in the space. So we can write the Langevin equation of this particle:
+
+![image](https://user-images.githubusercontent.com/63879978/192063322-f5b0a75a-4819-4534-beea-5e18ff61f2a4.png)
 
 $$
 \frac{dX_t}{dt} = \theta (\mu - X_t) + \sigma \xi_t
@@ -68,7 +73,9 @@ $$
 X_{t+\Delta t} = (1 - \theta \Delta t) X_t + \theta \mu \Delta t + \sigma \Delta W_t
 $$
 
-And we can iteratively generate $X_t$ for all $t$ by this equaiton. However, explicit method does not guarantee convergence, which means if the time step is chosen too big (compared to the timescale of the spring $1/\theta$), the system will blow up. We can see the blow up if we run this program, choose "OUE" as the model, and set time step equal to 2 ($1/\theta = 1$ in this system).
+And we can iteratively generate $X_t$ for all $t$ by this equaiton. However, explicit method does not guarantee convergence, which means if the time step is chosen too big (compared to the timescale of the spring $1/\theta$), the system will blow up. We can see the blow up if we run this program, choose "OUE" as the model, and set time step equal to 2 (the timescale = 1 in this system).
+
+![image](https://user-images.githubusercontent.com/63879978/192062674-96e33f26-d7ba-44c0-87df-c30d3cf3dcd1.png)
 
 ### Implicit method realizing the Ornstein-Uhlenbeck process
 
@@ -78,5 +85,7 @@ $$
 X_{t+\Delta t} = \frac{1}{1 + \theta \Delta t} (X_t + \theta \mu \Delta t + \sigma \Delta W_t)
 $$
 
-Similarly, we can iterate this equation to generate $X_t$ for all $t$. The implicit method guarantees convergence, so that even if we choose a very big time step, the system will not blow up. So the implicit method is a better solution in generating the Ornstein-Uhlenbeck process.
+Similarly, we can iterate this equation to generate $X_t$ for all $t$. The implicit method guarantees convergence, so that even if we choose a very big time step, the system will not blow up (although the numerical error becomes big). So the implicit method is a better solution in generating the Ornstein-Uhlenbeck process.
+
+![image](https://user-images.githubusercontent.com/63879978/192062762-f8842ea0-5eab-43bf-91ba-f31f4ff13c6c.png)
 
