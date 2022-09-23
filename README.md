@@ -13,7 +13,7 @@ This program can generate multiple independent stochastic processes (Brownian mo
 A stochastic process is defined as a series of random variables, widely used to model systems with thermal fluctuations or stock prices in financial markets. A basic stochastic process is the Brownian motion $W_t$ (also called Wiener process). Every increment in the Brownian motion is independent and follows a standard normal distribution
 
 $$
-dW_t \sim N(0, 1)
+W_t = \int_0^t dW_t
 $$
 
 In physics, this corresponds to the trajectory of an inertia-free Brownian particle. The motion of this Brownian particle $W_t$ can be described by a Langevin equation
@@ -28,7 +28,7 @@ $$
 dW_t = \xi_tdt
 $$
 
-where $\xi_t$ is a random velocity (due to a random force) that is uncorrelated in time and $\xi_tdt$ follows a standard normal distribution $N(0, 1)$.
+where $\xi_t$ is a random velocity (due to a random force) that is uncorrelated in time and follows a standard normal distribution $N(0, 1)$.
 
 ### Ornstein-Uhlenbeck process
 
