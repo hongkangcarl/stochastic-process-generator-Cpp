@@ -32,9 +32,9 @@ where $\xi_t$ is a random velocity (due to a random force) that is uncorrelated 
 
 ### Ornstein-Uhlenbeck process
 
-The Ornstein-Uhlenbeck process is another basic but interesting stochastic process. Physically motivated, this process is the trajectory of an inertia-free Brownian particle connected by a spring to a fixed point in the space. So we can write the Langevin equation of this particle:
-
 ![image](https://user-images.githubusercontent.com/63879978/192063322-f5b0a75a-4819-4534-beea-5e18ff61f2a4.png)
+
+The Ornstein-Uhlenbeck process is another basic but interesting stochastic process. Physically motivated, this process is the trajectory of an inertia-free Brownian particle connected by a spring to a fixed point in the space. So we can write the Langevin equation of this particle:
 
 $$
 \frac{dX_t}{dt} = \theta (\mu - X_t) + \sigma \xi_t
