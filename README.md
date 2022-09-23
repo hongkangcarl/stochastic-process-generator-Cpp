@@ -10,7 +10,7 @@ This program can generate multiple independent stochastic processes (Brownian mo
 
 ![image](https://user-images.githubusercontent.com/63879978/192063293-30e54aef-9bf8-48f9-a341-9628ce770310.png)
 
-A stochastic process is defined as a series of random variables, widely used to model systems with thermal fluctuations or stock prices in financial markets. A basic stochastic process is the Brownian motion $W_t$ (also called Wiener process). Every increment in the Brownian motion is independent and follows a standard normal distribution
+A stochastic process is defined as a series of random variables, widely used to model systems with thermal fluctuations or stock prices in financial markets. A basic stochastic process is the Brownian motion $W_t$ (also called Wiener process). Every increment in the Brownian motion is independent and follows a normal distribution
 
 $$
 W_t = \int_0^t dW_t
